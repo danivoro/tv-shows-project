@@ -1,13 +1,13 @@
-// import episodes from '../data/episodes.json'
+import episodes from "../data/episodes.json";
 import { EpisodeCard } from "./EpisodeCard";
 import "./App.css";
 
 function App() {
-    return (
-        <div className="App">
-            <EpisodeCard />
-        </div>
-    );
+    const allEpisodes = episodes.map((episode) => (
+        <EpisodeCard key={episode.id} episode={episode} />
+    ));
+
+    return <div className="App">{allEpisodes}</div>;
 }
 
 export default App;
