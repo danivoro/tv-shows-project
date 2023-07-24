@@ -5,4 +5,4 @@ Daniil and Adil
 
 Here's the board for our project:
 
-\https://github.com/users/danivoro/projects/1
+https://github.com/users/danivoro/projects/1
