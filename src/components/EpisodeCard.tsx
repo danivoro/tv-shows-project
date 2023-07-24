@@ -1,15 +1,21 @@
 import IEpisode from "../interfaces/episode";
 
-export function EpisodeCard(episode: IEpisode): JSX.Element {
+interface EpisodeCardProps {
+    key: number;
+    episode: IEpisode;
+}
+
+export function EpisodeCard(props: EpisodeCardProps): JSX.Element {
+    const e = props.episode;
     return (
         <>
             <div>
-                {episode.name} S{episode.season}E{episode.number}
+                {e.name} S{e.season}E{e.number}
             </div>
             <div>
-                <img src={episode.image.medium} alt={episode.name} />
+                <img src={e.image.medium} alt={e.name} />
             </div>
-            <div>{episode.summary}</div>
+            <div>{e.summary}</div>
         </>
     );
 }
