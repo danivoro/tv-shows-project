@@ -1,9 +1,11 @@
-export function EpisodeCard(): JSX.Element {
+import IEpisode from "../interfaces/episode";
+
+export function EpisodeCard(episode : IEpisode): JSX.Element {
     return (
         <>
-            <div>Title</div>
-            <div>Image</div>
-            <div>Description</div>
+            <div>{episode.name} S{episode.season}E{episode.number}</div>
+            <div><img src={episode.image.medium} alt={episode.name} /></div>
+            <div>{episode.summary}</div>
         </>
     );
 }
