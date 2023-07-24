@@ -1,15 +1,16 @@
-import { MyComponent } from "./MyComponent";
+// import episodes from '../data/episodes.json'
+import { EpisodeCard } from "./EpisodeCard"
 import "./App.css";
-import { greet } from "../greet";
+
 
 function App() {
     return (
         <div className="App">
-            <MyComponent />
-
-            {greet("World")}
+            <EpisodeCard />
         </div>
     );
 }
+
+
 
 export default App;
