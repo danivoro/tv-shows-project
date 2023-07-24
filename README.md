@@ -1,6 +1,6 @@
 # TV Shows Projects
 
-Daniil and Adil
+Project by Daniil and Adil for Academy training.
 
 
 Here's the board for our project:
