@@ -1,7 +1,6 @@
 // import episodes from '../data/episodes.json'
-import { EpisodeCard } from "./EpisodeCard"
+import { EpisodeCard } from "./EpisodeCard";
 import "./App.css";
-
 
 function App() {
     return (
@@ -10,7 +9,5 @@ function App() {
         </div>
     );
 }
-
-
 
 export default App;
