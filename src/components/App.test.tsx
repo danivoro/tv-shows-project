@@ -8,4 +8,4 @@ describe("App component", async () => {
         const elem = screen.getByText("Hello, World");
         expect(elem).toBeInTheDocument();
     });
-}); 
+});
