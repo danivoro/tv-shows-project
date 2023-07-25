@@ -14,7 +14,7 @@
     "test:watch": "vitest --reporter verbose",
     "test:gui": "vitest --ui",
     "type-check": "tsc --noEmit",
-    "test-all-wfs": "yarn format; yarn lint; yarn test; yarn build"
+    "run-all-wfs": "yarn format; yarn lint; yarn test; yarn build"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -37,7 +37,8 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "jsdom": "^22.0.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
     "vite": "^4.3.9",
     "vite-plugin-checker": "^0.6.0",
     "vite-plugin-eslint": "^1.8.1",
