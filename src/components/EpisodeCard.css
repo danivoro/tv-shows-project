@@ -1,0 +1,12 @@
+.card-container{
+    border:1px solid;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.episode-heading{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px
+}
