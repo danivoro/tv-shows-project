@@ -5,23 +5,23 @@ import Footer from "./Footer";
 import { useState } from "react";
 import filterBySearchedInput from "../util/filterBySearchedInput";
 
+interface KeyboardControlledInputProps {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+function KeyboardControlledInput(
+    props: KeyboardControlledInputProps
+): JSX.Element {
+    return (
+        <>
+            <input value={props.value} onChange={props.onChange} />
+        </>
+    );
+}
+
 function App() {
     const [searchedInput, setSearchedInput] = useState("");
-
-    interface KeyboardControlledInputProps {
-        value: string;
-        onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    }
-
-    function KeyboardControlledInput(
-        props: KeyboardControlledInputProps
-    ): JSX.Element {
-        return (
-            <>
-                <input value={props.value} onChange={props.onChange} />
-            </>
-        );
-    }
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchedInput(event.target.value);
