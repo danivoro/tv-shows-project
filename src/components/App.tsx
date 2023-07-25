@@ -9,13 +9,11 @@ function App() {
     ));
 
     return (
-    <>
-        <div className="App">
-            {allEpisodes}
-        </div>
-        <Footer/>
-    </>)
-        
+        <>
+            <div className="App">{allEpisodes}</div>
+            <Footer />
+        </>
+    );
 }
 
 export default App;

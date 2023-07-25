@@ -1,6 +1,7 @@
-import cleanString from "./cleanString"
+import cleanString from "./cleanString";
 
-test('cleanString passes basic tests', () => {
-    expect(cleanString('<p>Lord Eddard Stark.</p>'))
-    .toEqual('Lord Eddard Stark.');
-})
+test("cleanString passes basic tests", () => {
+    expect(cleanString("<p>Lord Eddard Stark.</p>")).toEqual(
+        "Lord Eddard Stark."
+    );
+});
