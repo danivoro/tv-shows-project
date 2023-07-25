@@ -17,6 +17,10 @@
 
 .episode-description {
     margin: 15px;
+    text-align: justify;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
 
 .episode-image {
