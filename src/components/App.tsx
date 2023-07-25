@@ -14,9 +14,9 @@ function KeyboardControlledInput(
     props: KeyboardControlledInputProps
 ): JSX.Element {
     return (
-        <>
+        <span>
             <input value={props.value} onChange={props.onChange} />
-        </>
+        </span>
     );
 }
 
@@ -35,12 +35,16 @@ function App() {
         <>
             <div className="title">Game of Thrones Searcher</div>
             <div className="searchBar">
-                <span className="search-annotation">Search: </span>
+            
+                <span className="search-annotation">Search:</span>
                 <KeyboardControlledInput
                     value={searchedInput}
                     onChange={handleInputChange}
                 />
-            </div>
+                <span className="counter">Showing: {filterBySearchedInput(episodes, searchedInput).length}/{episodes.length}</span>
+                
+            </div> 
+            
             <div className="app">{allEpisodes}</div>
             <Footer />
         </>
