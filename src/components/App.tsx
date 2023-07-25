@@ -10,7 +10,7 @@ function App() {
 
     return (
         <>
-            <div className="App">{allEpisodes}</div>
+            <div className="app">{allEpisodes}</div>
             <Footer />
         </>
     );
