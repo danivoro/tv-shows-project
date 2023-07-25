@@ -23,3 +23,8 @@
     margin: 15px;
     text-align: center;
 }
+
+.episode-number {
+    font-weight: 200;
+    margin-top: 10px;
+}

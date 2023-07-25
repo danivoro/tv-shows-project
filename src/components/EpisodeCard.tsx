@@ -19,7 +19,7 @@ export function EpisodeCard(props: EpisodeCardProps): JSX.Element {
     return (
         <div className="card-container">
             <div className="episode-heading">
-                {e.name} S{paddedSeasonNumber}E{paddedEpisodeNumber}
+                {e.name} <div className="episode-number">S{paddedSeasonNumber}E{paddedEpisodeNumber}</div>
             </div>
             <div className="episode-image">
                 <img src={e.image.medium} alt={e.name} />
