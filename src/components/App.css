@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(49, 33, 12);
+    background-color: rgb(247, 241, 233);
 }
 
 .app {
@@ -7,4 +7,13 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
     padding: 20px;
+}
+
+.searchBar {
+    font-size: 4%;
+    text-align: center;
+}
+
+.search-annotation {
+    font-size: 20px;
 }
