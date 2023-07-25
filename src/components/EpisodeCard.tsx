@@ -13,10 +13,10 @@ export function EpisodeCard(props: EpisodeCardProps): JSX.Element {
             <div className="episode-heading">
                 {e.name} S{e.season}E{e.number}
             </div>
-            <div>
+            <div className="episode-image">
                 <img src={e.image.medium} alt={e.name} />
             </div>
-            <div>{e.summary}</div>
+            <div className="episode-description">{e.summary}</div>
         </div>
     );
 }
