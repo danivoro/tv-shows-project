@@ -34,6 +34,7 @@ function App() {
     return (
         <>
             <div className="searchBar">
+                <span className="search-annotation">Search:</span>
                 <KeyboardControlledInput
                     value={searchedInput}
                     onChange={handleInputChange}
