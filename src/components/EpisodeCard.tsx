@@ -12,7 +12,9 @@ export function EpisodeCard(props: EpisodeCardProps): JSX.Element {
     const e = props.episode;
     const paddedSeasonNumber = padNumber(e.season);
     const paddedEpisodeNumber = padNumber(e.number);
-    const cleanedSummary = cleanString(e.summary);
+    let cleanedSummary = cleanString(e.summary, '<p>');
+    cleanedSummary = cleanString(cleanedSummary, '</p>');
+    cleanedSummary = cleanString(cleanedSummary, '<br>');
 
     return (
         <div className="card-container">
