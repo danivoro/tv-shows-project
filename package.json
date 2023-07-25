@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && vite build",
     "start": "vite --port 3000",
-    "format": "prettier --write src index.html",
+    "format:prettier": "prettier --write src index.html",
     "format:check": "prettier --check src index.html",
     "lint": "eslint --max-warnings=0 src",
     "preview": "vite preview",
@@ -14,7 +14,7 @@
     "test:watch": "vitest --reporter verbose",
     "test:gui": "vitest --ui",
     "type-check": "tsc --noEmit",
-    "run-all-wfs": "yarn format; yarn lint; yarn test; yarn build"
+    "format": "yarn format; yarn lint; yarn test; yarn build"
   },
   "dependencies": {
     "react": "^18.2.0",

@@ -1,9 +1,11 @@
 .card-container {
+    background-color: azure;
     border: 1px solid;
     border-color: black;
     border-radius: 5px;
     font-size: 20px;
     margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .episode-heading {

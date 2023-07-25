@@ -1,5 +1,5 @@
-const cleanString = (inputStr: string): string => {
-    return inputStr.slice(3, -4);
+const cleanString = (inputStr: string, stringToDelete: string): string => {
+    return inputStr.replaceAll(stringToDelete, "");
 };
 
 export default cleanString;
