@@ -33,8 +33,9 @@ function App() {
 
     return (
         <>
+            <div className="title">Game of Thrones Searcher</div>
             <div className="searchBar">
-                <span className="search-annotation">Search:</span>
+                <span className="search-annotation">Search: </span>
                 <KeyboardControlledInput
                     value={searchedInput}
                     onChange={handleInputChange}
