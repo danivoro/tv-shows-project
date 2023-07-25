@@ -1,5 +1,5 @@
 import IEpisode from "../interfaces/episode";
-import "./EpisodeCard.css"
+import "./EpisodeCard.css";
 
 interface EpisodeCardProps {
     key: number;
