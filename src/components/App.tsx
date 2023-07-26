@@ -1,9 +1,9 @@
-import episodes from "../data/episodes.json";
+import { useEffect, useState } from "react";
 import { EpisodeCard } from "./EpisodeCard";
 import "./App.css";
 import Footer from "./Footer";
-import { useState } from "react";
 import filterBySearchedInput from "../util/filterBySearchedInput";
+import IEpisode from "../interfaces/episode";
 
 interface KeyboardControlledInputProps {
     value: string;
@@ -22,14 +22,31 @@ function KeyboardControlledInput(
 
 function App() {
     const [searchedInput, setSearchedInput] = useState("");
+    const [fetchedEpisodes, setFetchedEpisodes] = useState<IEpisode[]>([]);
+    const [loading, setLoading] = useState(true);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchedInput(event.target.value);
     };
 
-    const allEpisodes = filterBySearchedInput(episodes, searchedInput).map(
-        (episode) => <EpisodeCard key={episode.id} episode={episode} />
-    );
+    useEffect(() => {
+        async function getDataFromAPI() {
+            const response = await fetch(
+                "https://api.tvmaze.com/shows/527/episodes"
+            );
+            const jsonBody = await response.json();
+            setFetchedEpisodes(jsonBody);
+            setLoading(false);
+        }
+
+        //reinsuring that this is run only once, on mount.
+        getDataFromAPI();
+    }, []);
+
+    const allEpisodes = filterBySearchedInput(
+        fetchedEpisodes,
+        searchedInput
+    ).map((episode) => <EpisodeCard key={episode.id} episode={episode} />);
 
     return (
         <>
@@ -41,13 +58,19 @@ function App() {
                     onChange={handleInputChange}
                 />
                 <span className="counter">
-                    Showing:{" "}
-                    {filterBySearchedInput(episodes, searchedInput).length}/
-                    {episodes.length}
+                    Showing:
+                    {
+                        filterBySearchedInput(fetchedEpisodes, searchedInput)
+                            .length
+                    }
+                    /{fetchedEpisodes.length}
                 </span>
             </div>
-
-            <div className="app">{allEpisodes}</div>
+            {loading ? (
+                <p className="loading">Loading...</p>
+            ) : (
+                <div className="app">{allEpisodes}</div>
+            )}
             <Footer />
         </>
     );
