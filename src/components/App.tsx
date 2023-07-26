@@ -1,18 +1,27 @@
-import _episodes from "../data/simpsonsEpisodes.json";
+// import _episodes from "../data/simpsonsEpisodes.json";
 import { EpisodeCard } from "./EpisodeCard";
 import "./App.css";
 import Footer from "./Footer";
 import { useState } from "react";
 import filterBySearchedInput from "../util/filterBySearchedInput";
 import IEpisode from "../interfaces/episode";
-const episodes: IEpisode[] = _episodes as IEpisode[];
+// const fetchedEpisodes: IEpisode[] = _episodes as IEpisode[];
+let fetchedEpisodes: IEpisode[] = [];
+
+async function getDataFromAPI() {
+    const response = await fetch("https://api.tvmaze.com/shows/527/episodes");
+    const jsonBody = await response.json();
+    fetchedEpisodes = jsonBody;
+}
+
+getDataFromAPI();
 
 interface KeyboardControlledInputProps {
     value: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-episodes.forEach((episodeInfo) => {
+fetchedEpisodes.forEach((episodeInfo) => {
     if (!episodeInfo.rating.average) {
         episodeInfo.rating.average = 0;
     }
@@ -41,9 +50,10 @@ function App() {
         setSearchedInput(event.target.value);
     };
 
-    const allEpisodes = filterBySearchedInput(episodes, searchedInput).map(
-        (episode) => <EpisodeCard key={episode.id} episode={episode} />
-    );
+    const allEpisodes = filterBySearchedInput(
+        fetchedEpisodes,
+        searchedInput
+    ).map((episode) => <EpisodeCard key={episode.id} episode={episode} />);
 
     return (
         <>
@@ -56,8 +66,11 @@ function App() {
                 />
                 <span className="counter">
                     Showing:
-                    {filterBySearchedInput(episodes, searchedInput).length}/
-                    {episodes.length}
+                    {
+                        filterBySearchedInput(fetchedEpisodes, searchedInput)
+                            .length
+                    }
+                    /{fetchedEpisodes.length}
                 </span>
             </div>
 

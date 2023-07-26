@@ -15,6 +15,7 @@ export function EpisodeCard(props: EpisodeCardProps): JSX.Element {
     let cleanedSummary = cleanString(e.summary, "<p>");
     cleanedSummary = cleanString(cleanedSummary, "</p>");
     cleanedSummary = cleanString(cleanedSummary, "<br>");
+    cleanedSummary = cleanString(cleanedSummary, "<br />");
     cleanedSummary = cleanString(cleanedSummary, "<b>");
     cleanedSummary = cleanString(cleanedSummary, "</b>");
     cleanedSummary = cleanString(cleanedSummary, "</i>");
