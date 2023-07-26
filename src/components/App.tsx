@@ -44,7 +44,6 @@ function KeyboardControlledInput(
 
 function App() {
     const [searchedInput, setSearchedInput] = useState("");
-    const [episodesLoaded, setEpisodeLoaded] = useState(false);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchedInput(event.target.value);
@@ -58,10 +57,6 @@ function App() {
     // useEffect(() => {
     //     getDataFromAPI();
     // }, []);
-
-    useEffect(() => {
-        setEpisodeLoaded(true);
-    }, [fetchedEpisodes]);
 
     return (
         <>
@@ -81,7 +76,9 @@ function App() {
                     /{fetchedEpisodes.length}
                 </span>
             </div>
-            {fetchedEpisodes! && <p>Loading...</p>}
+            {fetchedEpisodes.length === 0 && (
+                <p className="loading">Loading...</p>
+            )}
             <div className="app">{allEpisodes}</div>
             <Footer />
         </>
