@@ -14,7 +14,7 @@
     "test:watch": "vitest --reporter verbose",
     "test:gui": "vitest --ui",
     "type-check": "tsc --noEmit",
-    "all-checks": "yarn format; yarn lint; yarn test"
+    "all-checks": "yarn type-check; yarn format; yarn lint; yarn test"
   },
   "dependencies": {
     "react": "^18.2.0",
