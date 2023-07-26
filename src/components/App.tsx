@@ -1,8 +1,7 @@
-// import _episodes from "../data/simpsonsEpisodes.json";
+import { useEffect, useState } from "react";
 import { EpisodeCard } from "./EpisodeCard";
 import "./App.css";
 import Footer from "./Footer";
-import { useState } from "react";
 import filterBySearchedInput from "../util/filterBySearchedInput";
 import IEpisode from "../interfaces/episode";
 // const fetchedEpisodes: IEpisode[] = _episodes as IEpisode[];
@@ -45,6 +44,7 @@ function KeyboardControlledInput(
 
 function App() {
     const [searchedInput, setSearchedInput] = useState("");
+    const [episodesLoaded, setEpisodeLoaded] = useState(false);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchedInput(event.target.value);
@@ -54,6 +54,14 @@ function App() {
         fetchedEpisodes,
         searchedInput
     ).map((episode) => <EpisodeCard key={episode.id} episode={episode} />);
+
+    // useEffect(() => {
+    //     getDataFromAPI();
+    // }, []);
+
+    useEffect(() => {
+        setEpisodeLoaded(true);
+    }, [fetchedEpisodes]);
 
     return (
         <>
@@ -73,7 +81,7 @@ function App() {
                     /{fetchedEpisodes.length}
                 </span>
             </div>
-
+            {fetchedEpisodes! && <p>Loading...</p>}
             <div className="app">{allEpisodes}</div>
             <Footer />
         </>
