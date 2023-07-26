@@ -8,7 +8,7 @@ interface IEpisode {
     airdate: string;
     airtime: string;
     airstamp: string;
-    rating?: { average: number };
+    rating: { average: number };
     runtime: number;
     image: {
         medium: string;

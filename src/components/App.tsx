@@ -1,14 +1,28 @@
-import episodes from "../data/episodes.json";
+import _episodes from "../data/simpsonsEpisodes.json";
 import { EpisodeCard } from "./EpisodeCard";
 import "./App.css";
 import Footer from "./Footer";
 import { useState } from "react";
 import filterBySearchedInput from "../util/filterBySearchedInput";
+import IEpisode from "../interfaces/episode";
+const episodes: IEpisode[] = _episodes as IEpisode[];
 
 interface KeyboardControlledInputProps {
     value: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+episodes.forEach((episodeInfo) => {
+    if (!episodeInfo.rating.average) {
+        episodeInfo.rating.average = 0;
+    }
+    if (!episodeInfo.summary) {
+        episodeInfo.summary = "";
+    }
+    if (!episodeInfo.image) {
+        episodeInfo.image = { medium: "", original: "" };
+    }
+});
 
 function KeyboardControlledInput(
     props: KeyboardControlledInputProps
@@ -41,7 +55,7 @@ function App() {
                     onChange={handleInputChange}
                 />
                 <span className="counter">
-                    Showing:{" "}
+                    Showing:
                     {filterBySearchedInput(episodes, searchedInput).length}/
                     {episodes.length}
                 </span>
