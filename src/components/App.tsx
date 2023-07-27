@@ -52,6 +52,15 @@ function App() {
         <>
             <div className="title">TV Shows Searcher</div>
             <div className="searchBar">
+                <span className="series-selector">
+                    <label htmlFor="series">Choose a Show: </label>
+
+                    <select name="series" id="series">
+                        <option value="The Simpsons">The Simpsons</option>
+                        <option value="The Sopranos">The Sopranos</option>
+                        <option value="Game of Thrones">Game of Thrones</option>
+                    </select>
+                </span>
                 <span className="search-annotation">Search:</span>
                 <KeyboardControlledInput
                     value={searchedInput}
