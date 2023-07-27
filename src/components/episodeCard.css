@@ -1,7 +1,6 @@
 .card-container {
     background-color: azure;
-    border: 1px solid;
-    border-color: black;
+    border: 1px solid black;
     border-radius: 5px;
     font-size: 20px;
     margin: 20px;
