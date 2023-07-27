@@ -42,7 +42,18 @@ function App() {
             const response = await fetch(
                 "https://api.tvmaze.com/shows/" + currentShow.id + "/episodes"
             );
-            const jsonBody = await response.json();
+            const jsonBody: IEpisode[] = await response.json();
+            jsonBody.forEach((episode: IEpisode) => {
+                if (!episode.image) {
+                    episode.image = {
+                        medium: "",
+                        original: "",
+                    };
+                }
+                if (!episode.summary) {
+                    episode.summary = "";
+                }
+            });
             setFetchedEpisodes(jsonBody);
             setLoading(false);
         }
