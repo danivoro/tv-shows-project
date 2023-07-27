@@ -21,6 +21,8 @@ function KeyboardControlledInput(
     );
 }
 
+showsData.sort((a, b) => a.name.localeCompare(b.name));
+
 function App() {
     const [searchedInput, setSearchedInput] = useState("");
     const [fetchedEpisodes, setFetchedEpisodes] = useState<IEpisode[]>([]);
@@ -66,13 +68,11 @@ function App() {
                         id="series"
                         onChange={handleSelectShow}
                     >
-                        {showsData
-                            .sort((a, b) => a.name.localeCompare(b.name))
-                            .map((show) => (
-                                <option key={show.id} value={show.name}>
-                                    {show.name}
-                                </option>
-                            ))}
+                        {showsData.map((show) => (
+                            <option key={show.id} value={show.name}>
+                                {show.name}
+                            </option>
+                        ))}
                     </select>
                 </span>
                 <span className="search-annotation">Search episodes:</span>
