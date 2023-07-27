@@ -56,7 +56,7 @@ function App() {
 
     return (
         <>
-            <div className="title">{currentShow.name}</div>
+            <div className="title">TV Shows</div>
             <div className="searchBar">
                 <span className="series-selector">
                     <label htmlFor="series">Choose a Show: </label>
@@ -66,14 +66,16 @@ function App() {
                         id="series"
                         onChange={handleSelectShow}
                     >
-                        {showsData.map((show) => (
-                            <option key={show.id} value={show.name}>
-                                {show.name}
-                            </option>
-                        ))}
+                        {showsData
+                            .sort((a, b) => a.name.localeCompare(b.name))
+                            .map((show) => (
+                                <option key={show.id} value={show.name}>
+                                    {show.name}
+                                </option>
+                            ))}
                     </select>
                 </span>
-                <span className="search-annotation">Search:</span>
+                <span className="search-annotation">Search episodes:</span>
                 <KeyboardControlledInput
                     value={searchedInput}
                     onChange={handleInputChange}
