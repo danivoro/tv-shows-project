@@ -1,4 +1,4 @@
-import IEpisode from "../interfaces/episode";
+import IEpisode from "../interfaces/IEpisode";
 import cleanString from "../util/cleanString";
 import padNumber from "../util/padNumber";
 import "./episodeCard.css";

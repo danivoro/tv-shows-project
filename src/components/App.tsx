@@ -3,7 +3,8 @@ import { EpisodeCard } from "./EpisodeCard";
 import "./App.css";
 import Footer from "./Footer";
 import filterBySearchedInput from "../util/filterBySearchedInput";
-import IEpisode from "../interfaces/episode";
+import IEpisode from "../interfaces/IEpisode";
+import showsData from "../data/shows.json";
 
 interface KeyboardControlledInputProps {
     value: string;
@@ -24,15 +25,20 @@ function App() {
     const [searchedInput, setSearchedInput] = useState("");
     const [fetchedEpisodes, setFetchedEpisodes] = useState<IEpisode[]>([]);
     const [loading, setLoading] = useState(true);
+    const [currentShow, setCurrentShow] = useState(showsData[0]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchedInput(event.target.value);
     };
 
+    const handleSelectShow = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setCurrentShow(showsData.find((show) => show.name === e.target.value)!);
+    };
+
     useEffect(() => {
         async function getDataFromAPI() {
             const response = await fetch(
-                "https://api.tvmaze.com/shows/527/episodes"
+                "https://api.tvmaze.com/shows/" + currentShow.id + "/episodes"
             );
             const jsonBody = await response.json();
             setFetchedEpisodes(jsonBody);
@@ -41,7 +47,7 @@ function App() {
 
         //reinsuring that this is run only once, on mount.
         getDataFromAPI();
-    }, []);
+    }, [currentShow]);
 
     const allEpisodes = filterBySearchedInput(
         fetchedEpisodes,
@@ -50,15 +56,21 @@ function App() {
 
     return (
         <>
-            <div className="title">TV Shows Searcher</div>
+            <div className="title">{currentShow.name}</div>
             <div className="searchBar">
                 <span className="series-selector">
                     <label htmlFor="series">Choose a Show: </label>
 
-                    <select name="series" id="series">
-                        <option value="The Simpsons">The Simpsons</option>
-                        <option value="The Sopranos">The Sopranos</option>
-                        <option value="Game of Thrones">Game of Thrones</option>
+                    <select
+                        name="series"
+                        id="series"
+                        onChange={handleSelectShow}
+                    >
+                        {showsData.map((show) => (
+                            <option key={show.id} value={show.name}>
+                                {show.name}
+                            </option>
+                        ))}
                     </select>
                 </span>
                 <span className="search-annotation">Search:</span>

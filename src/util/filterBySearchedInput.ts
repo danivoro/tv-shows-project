@@ -1,4 +1,4 @@
-import IEpisode from "../interfaces/episode";
+import IEpisode from "../interfaces/IEpisode";
 
 function filterBySearchedInput(
     arr: IEpisode[],
