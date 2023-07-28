@@ -2,11 +2,11 @@
 
 Project by Daniil and Adil for Academy training.
 
-### Installation
+## Installation
 
 `yarn`
 
-### Running dev server
+## Running dev server
 
 `yarn start`
 
