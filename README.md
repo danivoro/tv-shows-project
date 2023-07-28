@@ -2,6 +2,15 @@
 
 Project by Daniil and Adil for Academy training.
 
+Installation
+
+`yarn`
+
+Running dev server
+
+`yarn start`
+
+You may need to manually open http://localhost:3000/ in your broswer
 
 Here's the board for our project:
 
