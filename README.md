@@ -12,11 +12,15 @@ Project by Daniil and Adil for Academy training.
 
 You may need to manually open `http://localhost:3000/` in your browser
 
-Here's the board for our project:
+### Our Github project board
 
 https://github.com/users/danivoro/projects/1
 
-You can check our app at:
+### Our Notion project page
+
+https://www.notion.so/weareacademy/C7R9-79eb2a7951c04dc3bd5fed2fb8c5dc1b
+
+### Our deployed app on Netlify
 
 https://daniil-adil-tv-show-app.netlify.app/
 
