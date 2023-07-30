@@ -35,6 +35,7 @@ function App() {
 
     const handleSelectShow = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setCurrentShow(showsData.find((show) => show.name === e.target.value)!);
+        setSearchedInput("");
     };
 
     useEffect(() => {
