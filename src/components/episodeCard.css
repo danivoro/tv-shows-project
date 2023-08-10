@@ -1,0 +1,33 @@
+.card-container {
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.episode-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+}
+
+.episode-description {
+    margin: 15px;
+    text-align: justify;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.episode-image {
+    margin: 5px;
+    text-align: center;
+}
+
+.episode-number {
+    font-weight: 200;
+    margin-top: 10px;
+}
